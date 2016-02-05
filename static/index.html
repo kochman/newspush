@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Newspush</title>
+		<script>
+			function setup() {
+				console.log("setting up...");
+				var ws = new WebSocket("ws://localhost:12345/echo");
+
+				ws.onopen = function(e) {
+					ws.send("hello there server");
+				}
+				ws.onmessage = function(e) {
+					console.log(e.data);
+				}
+			}
+
+			setup();
+			// window.onload = setup();
+		</script>
+	</head>
+	<body>
+		<h1>Newspush</h1>
+	</body>
+</html>
